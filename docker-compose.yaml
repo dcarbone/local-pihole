@@ -1,0 +1,25 @@
+version: "3"
+
+networks:
+  pihole-backend:
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    hostname: pi-hole
+    ports:
+      - "127.0.0.1:5335:53/tcp"
+      - "127.0.0.1:5335:53/udp"
+      - "127.0.0.1:8053:80/tcp"
+    env_file:
+      - '.env'
+    environment:
+      TZ: 'America/Chicago'
+      DNSSEC: 'true'
+      # cloudflare, quad9, opendns
+      PIHOLE_DNS_: '1.1.1.1;1.0.0.1;9.9.9.9;149.112.112.112;208.67.222.222;208.67.220.220'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    restart: unless-stopped

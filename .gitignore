@@ -1,0 +1,4 @@
+/.idea
+/.env
+/etc-pihole
+/etc-dnsmasq.d
