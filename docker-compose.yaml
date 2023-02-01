@@ -18,7 +18,7 @@ services:
       TZ: 'America/Chicago'
       DNSSEC: 'true'
       # cloudflare, quad9, opendns
-      PIHOLE_DNS_: '1.1.1.1;1.0.0.1;9.9.9.9;149.112.112.112;208.67.222.222;208.67.220.220'
+      PIHOLE_DNS_: '1.1.1.1;1.0.0.1;9.9.9.11;149.112.112.11;208.67.222.222;208.67.220.220'
     volumes:
       - './etc-pihole:/etc/pihole'
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
